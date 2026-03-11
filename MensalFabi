@@ -440,7 +440,8 @@
 async function init() {
   let d;
   try {
-    const r = await fetch('dados.json');
+    const base = window.location.pathname.replace(/\/[^/]*$/, '/');
+    const r = await fetch(base + 'dados.json');
     d = await r.json();
   } catch(e) {
     alert('Não foi possível carregar dados.json. Certifique-se que o arquivo está na mesma pasta.');
